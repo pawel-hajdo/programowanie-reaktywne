@@ -4,9 +4,9 @@ import _ from 'lodash';
 
 const Pagination = ( props ) => {
 
-    const { itemsCount, pageSize, currentPage, onPageChange } = props; // pobranie props
+    const { itemsCount, pageSize, currentPage, onPageChange } = props;
 
-    const pagesCount = Math.ceil(itemsCount / pageSize); //obliczenie ilości
+    const pagesCount = Math.ceil(itemsCount / pageSize);
 
     if (pagesCount === 1) {
         return null;
@@ -17,9 +17,9 @@ const Pagination = ( props ) => {
         <nav>
             <ul className="pagination pagination-sm">
                 {pages.map((item, key) => (
-                        <li key={key} className={ item === currentPage ? 'page-item active' : 'page-item' }>
-                            <a style={{cursor: 'pointer'}} className="page-link" onClick={() => onPageChange(item)}>{item}</a>
-                        </li>
+                    <li key={key} className={ item === currentPage ? 'page-item active' : 'page-item' }>
+                        <a style={{cursor: 'pointer'}} className="page-link" onClick={() => onPageChange(item)}>{item}</a>
+                    </li>
                     )
                 )}
             </ul>
@@ -33,7 +33,5 @@ Pagination.propTypes = {
     currentPage: PropTypes.number.isRequired,
     onPageChange: PropTypes.func.isRequired
 };
-
-
 
 export default Pagination;

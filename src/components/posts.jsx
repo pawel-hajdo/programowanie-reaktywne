@@ -20,7 +20,13 @@ class Posts extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:3001/api/posts")
+        fetch("http://localhost:3001/api/posts",
+            {method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': ' application/json',
+                    'x-auth-token': localStorage.getItem('token')
+                }})
             .then(res => res.json())
             .then(
                 (result) => {
@@ -60,12 +66,14 @@ class Posts extends Component {
     };
 
     renderSortIcon = (column) => {
+        console.log(this.state.sortColumn.order)
         if (column !== this.state.sortColumn.path) {
             return null;
         }
         if (this.state.sortColumn.order === 'asc') {
             return <i className="fa fa-sort-asc"></i>
         }
+
         if (this.state.sortColumn.order === 'desc') {
             return <i className="fa fa-sort-desc"></i>
         }
@@ -99,4 +107,5 @@ class Posts extends Component {
             </React.Fragment>)
     }
 }
+
 export default Posts;

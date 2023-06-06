@@ -32,4 +32,6 @@ const PostsTable = ( props ) => {
     )
 };
 
+
+
 export default PostsTable;
