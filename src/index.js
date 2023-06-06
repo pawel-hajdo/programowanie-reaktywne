@@ -13,6 +13,7 @@ import Posts from "./components/posts";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
 import NotFound from "./components/notFound";
+import LoginForm from "./components/loginForm";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.render(
                 <Route path="/" element={<App/>}>
                     <Route path="home" element={<Home/>}/>
                     <Route path="posts" element={<Posts/>}/>
+                    <Route path="login" element={<LoginForm/>}/>
                     <Route
                         path="*"
                         element={
